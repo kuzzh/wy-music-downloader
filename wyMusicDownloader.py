@@ -1,4 +1,8 @@
+# Filename: wyMusicDownloader.py
 # -*- coding: UTF-8 -*-
+# Author: sarlanori
+# Created Date: 2015-02-21
+# Modified Date: 2015-02-25
 
 import urllib2
 import urllib
