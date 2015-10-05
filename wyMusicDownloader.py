@@ -25,7 +25,8 @@ def getSongListPageSource(url):
     return urllib2.urlopen(url.replace("#/", "")).read()
 
 def getAllMusicIds(pageSource):
-    matches = re.finditer(r'<a href=\"/song\?id=(\d+)\" title=\".*\">(.*)</a>', pageSource)
+    #matches = re.finditer(r'<a href=\"/song\?id=(\d+)\" title=\".*\">(.*)</a>', pageSource)
+    matches = re.finditer(r'<a href=\"/song\?id=(\d+)\">(.*?)</a>', pageSource)
     musicIdList = []
     for m in matches:
         musicIdList.append(m.group(1))
@@ -33,7 +34,7 @@ def getAllMusicIds(pageSource):
     return musicIdList
 
 def getSongListName(pageSource):
-    match = re.search(r'<h2 class=\"f-ff2 f-brk\">(.*)</h2>', pageSource)
+    match = re.search(r'<h2 class=\"f-ff2\">(.*)</h2>', pageSource)
     return match.group(1)
 
 def getAllMp3Items(musicIdList):
