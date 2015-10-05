@@ -68,10 +68,17 @@ def download_music_list(url, save_path):
         os.mkdir(save_path)
 
     i = 1
+    urls = ""
     for mp3Item in mp3ItemList:
         print 'Downloading(' + str(i) + '/' + str(len(mp3ItemList)) + ') ' + mp3Item.name
+        urls += mp3Item.mp3url
+        urls += "\r\n"
         urllib.urlretrieve(mp3Item.mp3url, os.path.join(save_path, mp3Item.name.replace("/", "\\") + '-' + mp3Item.artist + '.mp3'))
         i += 1
+
+    fp = open(songListName + "-urls.txt","w")
+    fp.write(urls)
+    fp.close()
 
 if (len(sys.argv) < 2):
     print 'wyMusicDownloader.py: illegal option -- - '
