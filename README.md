@@ -1,4 +1,5 @@
-# WyMusicDownloader
-Download music song list from Wy Cloud Music.
+# wy-music-downloader
+从网易云音乐下载歌单里的歌曲
 
-`Usage: python wyMusicDownloader.py [song list url] [optional][local save path]`
+- 使用方法：
+  `python wyMusicDownloader.py [song list url] [local/save/path](optional)`
