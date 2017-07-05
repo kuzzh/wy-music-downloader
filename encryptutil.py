@@ -1,5 +1,9 @@
 #! coding:utf8
 
+# Filename: encrypututil.py
+# Author: bing zhou
+# Created Date: 2017-07-04
+
 # pylint: disable=C0111,C0103,C0301
 
 import urllib
