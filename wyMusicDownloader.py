@@ -114,6 +114,9 @@ def start(song_list_url, bitrate, local_save_path):
     total_file_size = calc_total_file_size(song_detail_list)
     download_size = 0
     for song_detail in song_detail_list:
+        if song_detail['mp3url'] is None:
+            print u'无歌曲下载链接：%s' % song_detail['name']
+            continue
         file_path = os.path.join(local_save_path, song_detail['name'].replace("/", "\\") + '-' + song_detail['artist'] + '.mp3')
         print u'正在下载(%d/%d) %s...剩余文件大小：%f MB' % (song_detail_list.index(song_detail) + 1, \
             len(song_detail_list), song_detail['name'], (total_file_size - download_size) / 1024.0**2)
@@ -123,6 +126,7 @@ def start(song_list_url, bitrate, local_save_path):
                 continue
             else:
                 os.remove(file_path)
+        
         urllib.urlretrieve(song_detail['mp3url'], file_path)
 
 def usage():

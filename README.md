@@ -1,6 +1,10 @@
 # wy-music-downloader
 从网易云音乐下载歌单里的歌曲
 
+- 前提条件
+  需要安装 `pycrypto` 模块，使用如下命令安装：
+  `pip install pycrypto`
+
 - 使用方法：
   `python wyMusicDownloader.py [-o local/save/path](可选) [-b bitrate](可选) [song list url]`
   
